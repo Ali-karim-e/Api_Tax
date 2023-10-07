@@ -1,0 +1,15 @@
+[
+    {
+        "referenceNumber": "672a5833-ef53-4e83-b941-79ff4f5d167e",
+        "uid": "f6fd05c9-b9dc-47fb-a458-247ebd69063b",
+        "fiscalId": null,
+        "status": "PENDING",
+        "data": {
+            "confirmationReferenceId": null,
+            "error": [],
+            "warning": [],
+            "success": true
+        },
+        "packetType": "PENDING"
+    }
+]

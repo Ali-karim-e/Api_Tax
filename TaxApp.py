@@ -26,7 +26,24 @@ class TaxApi():
 
     def sendapi(self):
        url = self.BaseURL + self.SendURL
-       print(url)
+       headers = {"Content-Type": "application/json",
+           "X-OrgID": self.x_orgid,
+           'Authorization': 'Bearer ' + self.Token}
+       body = json.loads(self.JsonRequest)
+       try:
+        post_response = requests.post(url ,headers=headers ,json=body)
+        my_json_str = json.dumps(post_response.json(), indent=4)
+        cursor = self.conn.cursor()
+        query = f"Update	Msg_TaxQueueHeader	Set  JsonRequest = '{my_json_str}' Where	id = {self.id}"
+        cursor.execute(query)
+        self.conn.commit()
+        print(post_response.status_code)
+        file2write=open("Json Responcesend.txt",'w')
+        file2write.write(my_json_str)
+        file2write.close()
+        return  my_json_str
+       except:
+        print("Receive error!!!!!!!!!!!!!!!!!!!")
 
     def inquiryapi(self):
        url = self.BaseURL + self.InquiryURL
@@ -42,7 +59,7 @@ class TaxApi():
         cursor.execute(query)
         self.conn.commit()
         print(post_response.status_code)
-        file2write=open("Json Responce.txt",'w')
+        file2write=open("Json inquiry.txt",'w')
         file2write.write(my_json_str)
         file2write.close()
         return  my_json_str

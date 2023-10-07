@@ -105,6 +105,7 @@ class Ui_MainWindow(object):
         """edit by mee"""
         self.pushButton_2.clicked.connect(self.inquiry)
         self.lineEdit.setValidator(QtGui.QIntValidator())
+        self.pushButton.clicked.connect(self.send)
 
 
 
@@ -120,7 +121,8 @@ class Ui_MainWindow(object):
         return sqlid
 
         
-
+    def send(self):
+        self.textBrowser.append("This butten not set!!!!! ")
 
     def inquiry(self):
         Id = self.validation()
