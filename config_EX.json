@@ -1,0 +1,8 @@
+{
+	"driver": "SQL Server",
+	"server": "server",
+	"database": "database",
+	"Username": "Username",
+	"Password": "Password",
+	"Trusted_Connection": "yes;"
+}
